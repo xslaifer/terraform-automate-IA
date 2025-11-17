@@ -10,7 +10,7 @@ resource "aws_launch_template" "this" {
   }
 
   network_interfaces {
-    security_groups = [var.instance_sg]
+    security_groups = [var.instance_sg_id]
   }
 
   user_data = base64encode(

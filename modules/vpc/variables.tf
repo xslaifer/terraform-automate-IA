@@ -17,6 +17,10 @@ variable "public_subnet_cidr" {
   type    = string
 
 }
+variable "public2_subnet_cidr" {
+  type    = string
+
+}
 
 variable "private_subnet_cidr" {
   type    = string
@@ -24,6 +28,11 @@ variable "private_subnet_cidr" {
 }
 
 variable "az_a" {
+  type    = string
+
+}
+
+variable "az_b" {
   type    = string
 
 }

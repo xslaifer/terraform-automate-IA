@@ -25,5 +25,5 @@ variable "aws_profile" {
 
 
 variable "ami_id" {
-  default = "ami-0c55b159cbfafe1f0" # Amazon Linux 2
+  default = "ami-0cae6d6fe6048ca2c" # Amazon Linux 2
 }

@@ -7,12 +7,14 @@ module "vpc" {
   environment = var.environment
   cidr_block  = var.vpc_cidr_block
   public_subnet_cidr = var.public_subnet_cidr
+  public2_subnet_cidr = var.public2_subnet_cidr
   private_subnet_cidr = var.private_subnet_cidr
   az_a = var.az_a
+  az_b = var.az_b
 }
 
 module "sg" {
-  source  = "./modules/security_groups"
+  source  = "./modules/sg"
   project = var.project
   vpc_id  = module.vpc.vpc_id
 }
@@ -22,12 +24,15 @@ module "iam" {
   project = var.project
 }
 
+
+
+
 module "alb" {
   source            = "./modules/alb"
   project           = var.project
   vpc_id            = module.vpc.vpc_id
-  alb_sg_id         = var.alb_sg_id
-  public_subnet_ids = [module.vpc.public_subnet_id]
+  alb_sg_id         = module.sg.alb_sg_id
+  public_subnet_ids = [module.vpc.public_subnet_id, module.vpc.public2_subnet_id]
 }
 
 module "asg" {

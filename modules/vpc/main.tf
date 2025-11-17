@@ -9,7 +9,7 @@ resource "aws_vpc" "main" {
   }
 }
 
-# --- SUBNET PÚBLICA ---
+# --- SUBNET PÚBLICA1 ---
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_cidr
@@ -18,6 +18,18 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name = "${var.project}-public-subnet"
+  }
+}
+
+# --- SUBNET PÚBLICA2 ---
+resource "aws_subnet" "public2" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.public2_subnet_cidr
+  map_public_ip_on_launch = true
+  availability_zone       = var.az_b
+
+  tags = {
+    Name = "${var.project}-public-subnet2"
   }
 }
 
@@ -99,7 +111,3 @@ resource "aws_route_table_association" "private_assoc" {
   route_table_id = aws_route_table.private.id
 }
 
-module "iam" {
-  source  = "./modules/iam"
-  project = var.project
-}
