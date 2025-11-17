@@ -22,3 +22,8 @@ variable "aws_profile" {
   type        = string
   default     = "default"
 }
+
+
+variable "ami_id" {
+  default = "ami-0c55b159cbfafe1f0" # Amazon Linux 2
+}
