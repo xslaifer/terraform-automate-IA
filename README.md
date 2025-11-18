@@ -36,3 +36,8 @@
 
 └────── Escala automáticamente las instancias según demanda
 
+                                                ARQUITECTURA CREADA
+
+<img width="598" height="572" alt="image" src="https://github.com/user-attachments/assets/7352424c-0762-4914-826f-65681c53f85f" />
+
+
