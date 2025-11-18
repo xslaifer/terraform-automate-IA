@@ -15,11 +15,27 @@ resource "aws_launch_template" "this" {
 
   user_data = base64encode(
     <<-EOF
-      #!/bin/bash
-      sudo yum update -y
-      echo "Hola Johan!" > /var/www/html/index.html
-    EOF
-  )
+    #!/bin/bash
+    set -e
+
+    # Actualizar paquetes
+    yum update -y
+
+    # Instalar Apache (httpd)
+    yum install -y httpd
+
+    # Habilitar Apache para que arranque siempre
+    systemctl enable httpd
+
+    # Iniciar Apache
+    systemctl start httpd
+
+    # Crear página simple
+    echo "Hola Esta es tu Pagina Creada con Terraform, con ALB y ASG!" > /var/www/html/index.html
+
+  EOF
+)
+
 }
 
 # AUTO SCALING GROUP

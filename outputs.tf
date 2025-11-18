@@ -7,5 +7,7 @@ output "alb_arn" {
 }
 
 output "alb_dns_name" {
-  value = module.alb.alb_dns
+  description = "URL del Load Balancer lista para abrir en el navegador"
+  value = "http://${module.alb.alb_dns}"
   }
+
