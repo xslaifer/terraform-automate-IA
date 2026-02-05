@@ -1,7 +1,7 @@
 variable "project" {
   description = "Nombre del proyecto"
   type        = string
-  default     = "terraform-lab"
+  default     = "terraform-IA"
 }
 
 variable "environment" {
