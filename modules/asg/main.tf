@@ -34,18 +34,18 @@ resource "aws_launch_template" "this" {
     echo "Hola Esta es tu Pagina Creada con Terraform, con ALB y ASG!" > /var/www/html/index.html
 
   EOF
-)
+  )
 
 }
 
 # AUTO SCALING GROUP
 resource "aws_autoscaling_group" "this" {
-  name                      = "${var.project}-asg"
-  max_size                  = 3
-  min_size                  = 1
-  desired_capacity          = 1
-  vpc_zone_identifier       = var.private_subnet_ids
-  health_check_type         = "EC2"
+  name                = "${var.project}-asg"
+  max_size            = 3
+  min_size            = 1
+  desired_capacity    = 1
+  vpc_zone_identifier = var.private_subnet_ids
+  health_check_type   = "EC2"
 
   launch_template {
     id      = aws_launch_template.this.id

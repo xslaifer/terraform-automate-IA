@@ -14,25 +14,25 @@ variable "cidr_block" {
 }
 
 variable "public_subnet_cidr" {
-  type    = string
+  type = string
 
 }
 variable "public2_subnet_cidr" {
-  type    = string
+  type = string
 
 }
 
 variable "private_subnet_cidr" {
-  type    = string
+  type = string
 
 }
 
 variable "az_a" {
-  type    = string
+  type = string
 
 }
 
 variable "az_b" {
-  type    = string
+  type = string
 
 }
