@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: terraform/environments/dev
+        working-directory: environments/dev
 
     steps:
       - name: Checkout
@@ -56,7 +56,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: terraform/environments/prod
+        working-directory: environments/prod
 
     steps:
       - name: Checkout
