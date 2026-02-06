@@ -48,13 +48,6 @@ jobs:
 
       - name: Terraform plan
         run: terraform plan -input=false -no-color
-
-      - name: Install tfsec
-        run: |
-          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
-
-      - name: tfsec scan
-        run: tfsec ../../
         
       - name: Comment plan on PR
         uses: actions/github-script@v7
@@ -77,6 +70,15 @@ jobs:
               repo: context.repo.repo,
               body
             });
+
+      - name: Install tfsec
+        run: |
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+
+      - name: tfsec scan
+        run: tfsec ../../
+        
+
 
 
   prod:
